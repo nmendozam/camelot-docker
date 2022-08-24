@@ -1,0 +1,11 @@
+FROM python
+
+# Install Camelot dependencies
+RUN \
+    apt-get update && \
+    apt-get install -y ghostscript python3-tk ffmpeg libsm6 libxext6 && \
+    apt-get clean
+
+RUN pip install camelot-py[base] opencv-python
+
+WORKDIR /app
